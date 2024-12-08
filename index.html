@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        input {
+            width: 100%;
+            text-align: center;
+        }
+
+        button{
+            cursor: pointer;
+            background: #FFF;
+            border: none;
+            border: 1px solid #000;
+            border-radius: 0.25rem;
+            line-height: 1.5rem;
+        }
+
+        .row-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .col-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .panel-wrap {
+            position: fixed;
+            top: .5rem;
+            left: .5rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        .panel-item {
+            width: 10rem;
+            background: #eee;
+            border-radius: .5rem;
+            padding: .5rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="panel-wrap">
+        <div class="panel-item">
+            <input id="brightnessSlider" type="range" min="0" max="2" step="0.1">
+            <input id="resolutionSlider" type="range" min="40" max="250" step="10">
+            <input id="spacingSlider" type="range" min="0.8" max="3" step="0.1">
+            <input onchange="handleFile(event)" type="file" accept="image/*">
+        </div>
+        <div class="panel-item">
+            <div class="row-wrap">
+                <input oninput="handleSize(event,'width')" value="500" type="text" placeholder="width">
+                <span>-</span>
+                <input oninput="handleSize(event,'height')" value="500" type="text" placeholder="height">
+            </div>
+            <button onclick="handleSave()">SAVE</button>
+        </div>
+    </div>
+</body>
+
+<script src="index.js"></script>
+</html>
